@@ -1,0 +1,25 @@
+PROFILE PAGE
+- make nice design
+- show more info
+- hide certain info
+
+REGISTER PAGE
+- register via social media
+- confirm email address to get verified (permission to post, User.isVerfied: true; required for admins)
+
+ADMIN PANEL
+- link "admin account"
+- show all users
+- search users
+- delete users
+
+BLOG
+- show new blog posts at the top, code below not working
+<% blogs.sort((a,b) => new Date(a.created).getTime() - new Date(b.created).getTime()) %>
+
+HEADER
+- fix background active for admin panel & profile
+
+COMMENTS
+- remove comment model and put within campgroundSchema plus refactor routes
+- add comments to blog posts

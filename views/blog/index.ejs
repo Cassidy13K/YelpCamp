@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <h1>YelpCamp Blog</h1>
+    <% if(currentUser && currentUser.isAdmin) { %>
+    <a href="/blog/new" class="btn btn-success">Create new Blog Post</a>
+    <% } %>
+    <hr>
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+        <% blogs.forEach((blog) => {%>
+            <div class="container"> 
+                <p class="pull-right"><em><%= blog.created.toDateString() %></em></p>
+                <h3><a href="/blog/<%= blog._id %>"><%= blog.title %></a></h3>
+                <% if(blog.image) { %>
+                <img class="blog-image" src="<%= blog.image %>"> 
+                <% } %>
+                <div class="description">
+                    <p><%- blog.content.substring(0, 300) %>...</p>
+                </div>
+                <div class="extra">
+                    <a href="/blog/<%= blog._id %>" class="btn btn-primary">Read more...</a>                            
+                </div>
+                <hr>
+            </div>
+        <% }) %>    
+    </div>
+</div>
+
+<% include ../partials/footer %>

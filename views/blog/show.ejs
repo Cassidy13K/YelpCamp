@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+
+<h1><%= blog.title %></h1>
+
+<% if(blog.image) { %>
+<img src="<%= blog.image %>" class="img-responsive blog-image-show" alt="Blog Post Image">
+<% } %>
+<hr>
+<p><%- blog.content %></p>
+<hr>
+
+<a href="/blog" class="btn btn-primary"><= Go back!</a>
+<% if(currentUser && currentUser.isAdmin) { %>
+<a href="/blog/<%= blog._id %>/edit" class="btn btn-warning">Edit</a>
+<form class="delete-form" action="/blog/<%= blog._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are You Sure You Want To Do That?')">
+    <button class="btn btn-danger">Delete</button>
+</form>
+<% } %>
+
+
+<% include ../partials/footer %>

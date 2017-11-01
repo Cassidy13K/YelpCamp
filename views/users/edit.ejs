@@ -1,0 +1,49 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <h1 style="text-align: center;">Edit User Profile</h1>
+    <div style="width: 30%; margin: 30px auto;">
+        <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+            <div class="form-group">
+                <label for="email">E-Mail*</label>
+                <input required class="form-control" type="email" name="user[email]" value="<%= user.email %>">
+            </div>
+            <div class="form-group">
+                <label for="username">Username*</label>
+                <input required class="form-control" type="text" name="user[username]" value="<%= user.username %>">
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input class="form-control" type="text" name="user[firstName]" value="<%= user.firstName %>" placeholder="Your First Name">
+
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input class="form-control" type="text" name="user[lastName]" value="<%= user.lastName %>" placeholder="Your Last Name">
+            </div>
+            <div class="form-group">
+                <label for="username">Avatar</label>
+                <input class="form-control" type="url" name="user[avatar]" value="<%= user.avatar %>" placeholder="Link to your picture" >
+            </div>
+            <div class="form-group">
+                <label for="username">Bio</label>
+                <textarea class="form-control" type="text" col="5" name="user[bio]" placeholder="Write something about yourself!">
+                    <%= user.bio %>    
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label for="adminCode">Code for admin signup</label>
+                <input class="form-control" type="password" name="adminCode" placeholder="admin code">
+            </div>
+
+            <em>* required fields</em><br>
+            <br>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+            </div>
+        </form>
+        <a href="javascript:history.back()">Go Back</a>
+    </div>
+</div>
+
+<% include ../partials/footer %>

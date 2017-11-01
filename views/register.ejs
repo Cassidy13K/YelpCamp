@@ -1,0 +1,34 @@
+<% include ./partials/header %>
+
+<div class="row">
+    <h1 style="text-align: center;">Sign up!</h1>
+    <div style="width: 30%; margin: 30px auto;">
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <label for="email">E-Mail*</label>
+                <input required class="form-control" type="email" name="email" placeholder="name@provider.com">
+            </div>
+            <div class="form-group">
+                <label for="username">Username*</label>
+                <input required pattern=".{3,}" title="Username has to be between at least 3 characters long." class="form-control" type="text" name="username" placeholder="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password*</label>
+                <input required pattern=".{5,}" title="Password needs to be at least 5 characters long!" class="form-control" type="password" name="password" placeholder="password">
+            </div> 
+            <% /*
+            <div class="form-group">
+                <label for="adminCode">Code for admin signup</label>
+                <input class="form-control" type="password" name="adminCode" placeholder="admin code">
+            </div>
+            */ %>
+            <em>* required fields</em><br>
+            <br>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<% include ./partials/footer %>

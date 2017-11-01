@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <h1 style="text-align: center;">Edit <%= campground.name %></h1>
+    <div style="width: 30%; margin: 30px auto;">
+        <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input required readonly class="form-control" type="text" name="campground[name]" value="<%= campground.name %>">
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input required class="form-control" type="url" name="campground[image]" value="<%= campground.image %>">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input required class="form-control" type="text" name="campground[price]" value="<%= campground.price %>" min="0" step="0.01">
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input required id="editSearch" class="form-control" type="text" name="campground[location]" id="location" value="<%= campground.location %>">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" rows="5" name="campground[description]"><%= campground.description %></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+            </div>
+        </form>
+        <a href="/campgrounds/<%= campground.id %>">Go Back</a>
+    </div>
+</div>
+
+<script>
+    function activatePlacesSearch() {
+        let input = document.getElementById("editSearch");
+        let autocomplete = new google.maps.places.Autocomplete(input);
+    }
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgY52iScKYCAMMPrcBUhcYJQ1ozM4KUsM&libraries=places&callback=activatePlacesSearch"></script>
+
+
+<% include ../partials/footer %>

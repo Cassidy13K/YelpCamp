@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="col-md-4"></div>
+        <h1><%= user.username %></h1>
+        <img class="user-avatar" src="<%= user.avatar %>" alt="user profile image">
+        <% if(user.isAdmin) { %>
+        <img class="admin-badge" src="https://i.imgur.com/2njo5ic.png" alt="admin badge">
+        <% } %>
+        <div class="caption"><a href="mailto:<%= user.email%>"><%= user.email %></a></div>
+        <p><%= user.firstName %> <%= user.lastName %></p>
+        <p><%- user.bio %></p>
+    </div>
+    
+    <div class="col-md-8">
+        <h3><%= user.username %>'s campgrounds</h3>
+        <% campgrounds.forEach((campground) => { %>
+            <div class="col-md-3 col-sm-6">
+                <a href="/campgrounds/<%= campground.id %>">
+                    <div class="thumbnail">
+                        <div class="caption">
+                           <h4><%= campground.name %></h4> 
+                        </div>
+                        <img src="<%= campground.image %>">
+                    </div> 
+                </a>
+            </div>  
+        <% }); %>
+    </div>
+    
+    <% if(currentUser && user._id.equals(currentUser._id)){ %>
+        <a href="/users/<%= user._id %>/edit" class="btn btn-warning">Edit Profile</a>
+        <form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST" 
+            onsubmit="return confirm(`Are you sure you want to permanently delete your user account? \n This action cannot be undone!`)">
+            <button class="btn btn-danger">Delete Profile</button>
+        </form>
+    <% } %>
+
+    
+</div>
+
+
+<% include ../partials/footer %>

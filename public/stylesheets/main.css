@@ -1,0 +1,41 @@
+.thumbnail img {
+    width: 100%;
+}
+
+.delete-form {
+    display: inline;
+}
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+.admin-badge {
+    width: 8vh;
+    height: 8vh;
+}
+
+.user-avatar {
+    width: 20vh;
+    height: 20vh;
+}
+
+footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:20px;
+    width:100%;
+    background:#D3D3D3;
+    text-align: center;
+}
+
+.blog-image-show {
+    height: 35vh;
+}
+
+.blog-image {
+    height: 20vh;
+}
